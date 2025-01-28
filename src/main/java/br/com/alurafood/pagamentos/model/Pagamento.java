@@ -24,19 +24,19 @@ public class Pagamento {
     @Positive
     private BigDecimal valor;
 
-    @NotBlank
+//    @NotBlank
     @Size(max = 100)
     private String nome;
 
-    @NotBlank
+//    @NotBlank
     @Size(max = 19)
     private String numero;
 
-    @NotBlank
+//    @NotBlank
     @Size(max = 7)
     private String expiracao;
 
-    @NotBlank
+//    @NotBlank
     @Size(min = 3, max = 3)
     private String codigo;
 
