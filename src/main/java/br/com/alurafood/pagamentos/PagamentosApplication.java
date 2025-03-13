@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "br.com.alurafood")
+@EnableFeignClients
+//@EnableFeignClients(basePackages = "br.com.alurafood")
 //@ComponentScan(basePackages = "br.com.alurafood")
 public class PagamentosApplication {
 

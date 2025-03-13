@@ -46,7 +46,7 @@ public class PagamentoService {
     }
 
     public PagamentoDTO atualizarPagamento(Long id, PagamentoDTO dto){
-        dto.setStatus(Status.ATUALZIADO);
+        dto.setStatus(Status.ATUALIZADO);
         Pagamento pagamento = modelMapper.map(dto, Pagamento.class);
         pagamento.setId(id);
         pagamento = repository.save(pagamento);
@@ -67,6 +67,24 @@ public class PagamentoService {
         pagamento.get().setStatus(Status.CONFIRMADO);
         repository.save(pagamento.get());
         pedido.atualizaPagamento(pagamento.get().getPedidoId());
+    }
+
+    public void alteraStatus(Long id) {
+
+        System.out.println("Fallback acionado para pagamento com ID: " + id);
+
+        Optional<Pagamento> pagamento = repository.findById(id);
+
+        if (!pagamento.isPresent()) {
+            throw new EntityNotFoundException();
+        }
+
+        pagamento.get().setStatus(Status.CONFIRMADO_SEM_INTEGRACAO);
+
+//        System.out.println(pagamento.get().toString());
+
+        repository.save(pagamento.get());
+
     }
 
 }

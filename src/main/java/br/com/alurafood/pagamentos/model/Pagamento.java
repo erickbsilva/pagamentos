@@ -50,4 +50,9 @@ public class Pagamento {
     @NonNull
     private Long formaDePagamentoId;
 
+    @Override
+    public String toString() {
+        return "(status = " + status + ")";
+    }
+
 }
